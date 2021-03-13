@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Yaya.cout</title>
+        <link>http://yaya.cout.free.fr</link>
+        <description>Les nouveaux commentaires et forum sur yaya.cout.free.fr.</description>
+        <item>
+            <title>Sukui a posté un nouveau commentaire</title>
+            <link>http://yaya.cout.free.fr/Commentaires/</link>
+            <description>Sukui a posté un nouveau commentaire publique à 1579021126 Heure.
+            Texte : </description>
+            <author>notification.yaya.cout@free.fr (Yaya.cout.free.fr)</author>
+        </item>
+        <item>
+            <title>Yaya.cout a posté un nouveau message sur le forum "Idées"</title>
+            <link>http://yaya.cout.free.fr/Forum/affichage.php?id=7</link>
+            <description>Yaya.cout a posté un nouveau message sur le forum "Idées". 
+            Message : Donnez moi des ideÃ©s.</description>
+            <author>notification.yaya.cout@free.fr (Yaya.cout.free.fr)</author>
+        </item>
+        <item>
+            <title>N1N1 a posté un nouveau message sur le forum "Comment s'occuper pendant la quarantaine?"</title>
+            <link>http://yaya.cout.free.fr/Forum/affichage.php?id=8</link>
+            <description>N1N1 a posté un nouveau message sur le forum "Comment s'occuper pendant la quarantaine?". 
+            Message : En crÃ©ant des site web?</description>
+            <author>notification.yaya.cout@free.fr (Yaya.cout.free.fr)</author>
+        </item>
+        <item>
+            <title>N1N1 a posté un nouveau message sur le forum "Comment s'occuper pendant la quarantaine?"</title>
+            <link>http://yaya.cout.free.fr/Forum/affichage.php?id=8</link>
+            <description>N1N1 a posté un nouveau message sur le forum "Comment s'occuper pendant la quarantaine?". 
+            Message : Avec de flux RSS!!</description>
+            <author>notification.yaya.cout@free.fr (Yaya.cout.free.fr)</author>
+        </item>
+             
+    </channel>
+</rss>

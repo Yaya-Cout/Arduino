@@ -1,0 +1,5 @@
+{
+    "sketch": "ReadAnalogVoltage.ino",
+    "port": "COM1",
+    "board": "arduino:avr:uno"
+}
