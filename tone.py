@@ -31,3 +31,5 @@ while True:
         board.pass_time(0.5)
         PIEZO_PIN.write(0)
         board.pass_time(0.5)
+
+board.exit()
