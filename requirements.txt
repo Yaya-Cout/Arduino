@@ -1,1 +1,3 @@
 pyfirmata
+pysine
+pyserial
