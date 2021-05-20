@@ -4,6 +4,7 @@ int Trig = A5;
 int middleDistance = 0 ;
 int BUZZER = 10;
 int TEMPO = 1;
+unsigned long frequence;
 
 int Distance_test()
 {
@@ -26,18 +27,22 @@ void setup()
 
 void loop()
 {
-  unsigned long frequence;
-  while (true) {
-    //delay(100);
+    delay(1000);
     middleDistance = Distance_test();
     frequence = (unsigned long)(middleDistance) * 7970 / 130 + 30;
 //    Serial.print(middleDistance);  Serial.print("  "); Serial.println(frequence); if (middleDistance < 10)
-    if (middleDistance < 150)
-    {
+    // if (middleDistance < 150)
+    // {
       tone(BUZZER, frequence, TEMPO);
+      // Serial.print("Frequence : ");
+      Serial.print( frequence);
+      // Serial.print(" Distance : ");
+      // Serial.print(middleDistance);
+      // Serial.print("cm");
+      // Serial.print(" ( ");
+      // Serial.print(middleDistance / 1000);
+      // Serial.println("m ) ");
 
-    }
+    // }
 
-
-  }
 }
