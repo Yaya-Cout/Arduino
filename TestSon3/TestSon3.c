@@ -1,4 +1,5 @@
-#include <Notes et télécommandes.h>
+#include <IRremote.h>
+#include <Yann.h>
 int TEMPO = 1;
 int receiverpin = 12;
 int LED = 13;              //define LED pin
@@ -25,6 +26,17 @@ unsigned long RED;
 IRrecv irrecv(receiverpin);
 decode_results results;
 
+int Distance_test()
+{
+  digitalWrite(Trig, LOW);
+  delayMicroseconds(2);
+  digitalWrite(Trig, HIGH);
+  delayMicroseconds(20);
+  digitalWrite(Trig, LOW);
+  float Fdistance = pulseIn(Echo, HIGH);
+  Fdistance = Fdistance / 58;
+  return (int)Fdistance;
+}
 
 void _mForward() // Avancer
 {
@@ -114,6 +126,12 @@ void setup() {
 }
 
 void loop() {
+  Distance = Distance_test();
+  if (Distance > 11)
+  {
+    _mStop();
+    tone(BUZZER, 440, 1000);
+  }
   if (irrecv.decode(&results))
   {
 
