@@ -53,7 +53,7 @@ unsigned long RED;
 #define TOUCHE_9_ROBOT 71952287 // bouton 9 de la télécommande du robot
 #define TOUCHE_0_ROBOT 465573243 // bouton 0 de la télécommande du robot0
 #define TOUCHE_DIESE_ROBOT 1053031451 // bouton # de la télécommande du robot
-#define TOUCHE_ETOILE_ROBOT  851901943 
+#define TOUCHE_ETOILE_ROBOT  851901943
 
 #define DO_3    261.626
 #define DO_D_3  277.183
@@ -88,7 +88,7 @@ decode_results results;
 
 
 void _mForward() // Avancer
-{ 
+{
 //  digitalWrite(ENA,HIGH);
 //  digitalWrite(ENB,HIGH);
   analogWrite(ENA,VIT1);
@@ -105,7 +105,7 @@ void _mBack() // Reculer
 //  digitalWrite(ENA,HIGH);
 //  digitalWrite(ENB,HIGH);
   analogWrite(ENA,VIT1);
-  analogWrite(ENB,VIT2);  
+  analogWrite(ENB,VIT2);
   digitalWrite(in1,LOW);
   digitalWrite(in2,HIGH);
   digitalWrite(in3,HIGH);
@@ -120,7 +120,7 @@ void _mleft() // A Gauche
   digitalWrite(in1,HIGH);
   digitalWrite(in2,LOW);
   digitalWrite(in3,HIGH);
-  digitalWrite(in4,LOW); 
+  digitalWrite(in4,LOW);
   digitalWrite(BUZZER, LOW);
   Serial.println("go left!");
 }
@@ -142,12 +142,12 @@ void _mStop()
   analogWrite(ENA, 0);
   analogWrite(ENB, 0);
   digitalWrite(BUZZER, LOW);
-  Serial.println("STOP!");  
+  Serial.println("STOP!");
 }
 
-void stateChange()      
+void stateChange()
 {
-  state = !state;          
+  state = !state;
   digitalWrite(LED, state);
   digitalWrite(BUZZER, state);
 }
@@ -164,11 +164,11 @@ void setup() {
   pinMode(ENB,OUTPUT);
   pinMode(receiverpin,INPUT);
   pinMode(BUZZER,OUTPUT);
-  
+
   //digitalWrite(BUZZER,LOW);
   tone(BUZZER, 880, 1000);
   //noTone(BUZZER);
-  
+
   Serial.begin(9600);
   _mStop();
   irrecv.enableIRIn();
@@ -176,7 +176,7 @@ void setup() {
 
 void loop() {
   if (irrecv.decode(&results))
-    { 
+    {
 
       RED=results.value;
        Serial.println(RED);
@@ -185,7 +185,7 @@ void loop() {
 //    if(RED==AVANT_HIFI || RED==AVANT_ROBOT)redeiverpin = 12;
 //int LED=13;                //define LED pinvolat
    if(RED==AVANT_HIFI || RED==AVANT_ROBOT)
-  {  
+  {
      _mForward();
   }
 
@@ -205,82 +205,82 @@ void loop() {
    }
 
   else if(RED==STOP_HIFI || RED==STOP_ROBOT)
-  { 
+  {
          _mStop();
    }
 
   else if(RED==USB_REC_HIFI || RED==LED_ROBOT)
-  { 
+  {
        stateChange();
        VIT1=MIN_VIT1;
        VIT2=MIN_VIT2;
    }
-  
+
   //else if(RED==TOUCHE_2_HIFI || RED==TOUCHE_2_ROBOT)
   else if(RED==TOUCHE_2_ROBOT)
-  { 
+  {
        tone(BUZZER, DO_3, 1000);
        VIT1=NOR_VIT1;
-       VIT2=NOR_VIT2; 
+       VIT2=NOR_VIT2;
   }
-   
+
   //else if(RED==TOUCHE_3_HIFI || RED==TOUCHE_3_ROBOT)
   else if(RED==TOUCHE_3_ROBOT)
-  { 
+  {
        tone(BUZZER, RE_3, 1000);
        VIT1=MAX_VIT1;
-       VIT2=MAX_VIT2;  
+       VIT2=MAX_VIT2;
   }
-  
+
   //else if(RED==TOUCHE_4_HIFI || RED==TOUCHE_4_ROBOT)
   else if(RED==TOUCHE_4_ROBOT)
-  { 
-       tone(BUZZER, MI_3, 1000); 
+  {
+       tone(BUZZER, MI_3, 1000);
   }
-  
+
   //else if(RED==TOUCHE_5_HIFI || RED==TOUCHE_5_ROBOT)
   else if(RED==TOUCHE_5_ROBOT)
-  { 
-       tone(BUZZER, FA_3, 1000); 
+  {
+       tone(BUZZER, FA_3, 1000);
   }
-  
+
   //else if(RED==TOUCHE_6_HIFI || RED==TOUCHE_6_ROBOT)
   else if(RED==TOUCHE_6_ROBOT)
-  { 
-       tone(BUZZER, SOL_3, 1000); 
+  {
+       tone(BUZZER, SOL_3, 1000);
   }
-  
+
   //else if(RED==TOUCHE_7_HIFI || RED==TOUCHE_7_ROBOT)
   else if(RED==TOUCHE_7_ROBOT)
-  { 
-       tone(BUZZER, LA_3, 1000); 
+  {
+       tone(BUZZER, LA_3, 1000);
   }
-  
+
   //else if(RED==TOUCHE_8_HIFI || RED==TOUCHE_8_ROBOT)
   else if(RED==TOUCHE_8_ROBOT)
-  { 
-       tone(BUZZER, SI_3, 1000); 
+  {
+       tone(BUZZER, SI_3, 1000);
   }
-  
+
   //else if(RED==TOUCHE_9_HIFI || RED==TOUCHE_9_ROBOT)
   else if(RED==TOUCHE_9_ROBOT)
-  { 
-       tone(BUZZER, DO_4, 1000); 
+  {
+       tone(BUZZER, DO_4, 1000);
   }
 
 
   //else if(RED==TOUCHE_0_HIFI || RED==TOUCHE_0_ROBOT)
   else if(RED==TOUCHE_0_ROBOT)
-  { 
+  {
        tone(BUZZER, DO_3, TEMPO); delay(TEMPO);
        tone(BUZZER, RE_3, TEMPO); delay(TEMPO);
        tone(BUZZER, MI_3, TEMPO); delay(TEMPO);
-      
+
        tone(BUZZER, MI_3, TEMPO); delay(TEMPO);
        tone(BUZZER, MI_3, TEMPO); delay(TEMPO);
        tone(BUZZER, MI_3, TEMPO); delay(TEMPO);
        delay(TEMPO/4);
-       
+
        tone(BUZZER, MI_3, TEMPO); delay(TEMPO);
        tone(BUZZER, FA_3, TEMPO); delay(TEMPO);
        tone(BUZZER, SOL_3, TEMPO); delay(TEMPO);
@@ -289,7 +289,7 @@ void loop() {
        tone(BUZZER, SOL_3, TEMPO); delay(TEMPO);
        tone(BUZZER, SOL_3, TEMPO); delay(TEMPO);
        delay(TEMPO/4);
-       
+
        tone(BUZZER, FA_3, TEMPO); delay(TEMPO);
        tone(BUZZER, MI_3, TEMPO); delay(TEMPO);
        tone(BUZZER, RE_3, TEMPO); delay(TEMPO);
@@ -306,11 +306,11 @@ void loop() {
        tone(BUZZER, DO_3, TEMPO); delay(TEMPO);
        tone(BUZZER, DO_3, TEMPO); delay(TEMPO);
        tone(BUZZER, DO_3, TEMPO); delay(TEMPO);
-  }  
-  
+  }
+
  //else if(RED==TOUCHE_DIESE_HIFI || RED==TOUCHE_DIESE_ROBOT)
   else if(RED==TOUCHE_DIESE_ROBOT)
-  { 
+  {
        tone(BUZZER, DO_3, TEMPO); delay(TEMPO);
        tone(BUZZER, RE_3, TEMPO); delay(TEMPO);
        tone(BUZZER, MI_3, TEMPO); delay(TEMPO);
@@ -319,7 +319,7 @@ void loop() {
        tone(BUZZER, LA_3, TEMPO); delay(TEMPO);
        tone(BUZZER, SI_3, TEMPO); delay(TEMPO);
        tone(BUZZER, DO_4, TEMPO); delay(TEMPO);
-        
+
        tone(BUZZER, RE_4, TEMPO); delay(TEMPO);
        tone(BUZZER, MI_4, TEMPO); delay(TEMPO);
        tone(BUZZER, FA_4, TEMPO); delay(TEMPO);
@@ -328,10 +328,10 @@ void loop() {
        tone(BUZZER, SI_4, TEMPO); delay(TEMPO);
        tone(BUZZER, DO_5, TEMPO); delay(TEMPO);
   }
- 
+
    //else if(RED==TOUCHE_0_HIFI || RED==TOUCHE_0_ROBOT)
      else if(RED==TOUCHE_ETOILE_ROBOT)
- { 
+ {
        tone(BUZZER, MI_4, TEMPO); delay(TEMPO);
        tone(BUZZER, LA_3, TEMPO); delay(TEMPO);
        tone(BUZZER, LA_3, TEMPO); delay(TEMPO);
@@ -343,7 +343,7 @@ void loop() {
        tone(BUZZER, MI_4, TEMPO); delay(TEMPO);
        tone(BUZZER, MI_4, TEMPO); delay(TEMPO);
        tone(BUZZER, MI_4, TEMPO); delay(TEMPO);
-       tone(BUZZER, RE_4, TEMPO); delay(TEMPO); 
+       tone(BUZZER, RE_4, TEMPO); delay(TEMPO);
        tone(BUZZER, SOL_4, TEMPO); delay(TEMPO);
        tone(BUZZER, SOL_3, TEMPO); delay(TEMPO);
        tone(BUZZER, LA_3, TEMPO); delay(TEMPO);
@@ -351,7 +351,7 @@ void loop() {
        tone(BUZZER, DO_4, TEMPO); delay(TEMPO);
        tone(BUZZER, RE_4, TEMPO); delay(TEMPO);
        tone(BUZZER, RE_4, TEMPO); delay(TEMPO);
-       
+
        tone(BUZZER, RE_4, TEMPO); delay(TEMPO);
        tone(BUZZER, RE_4, TEMPO); delay(TEMPO);
        tone(BUZZER, RE_4, TEMPO); delay(TEMPO);
@@ -367,19 +367,19 @@ void loop() {
        tone(BUZZER, DO_3, TEMPO); delay(TEMPO);
 //       tone(BUZZER, LA_3, TEMPO); delay(TEMPO);
 //       tone(BUZZER, SOL_3, TEMPO); delay(TEMPO);
-//       
+//
 //       tone(BUZZER, DO_4, TEMPO); delay(TEMPO);
 //       tone(BUZZER, DO_4, TEMPO); delay(TEMPO);
 //       tone(BUZZER, SI_3, TEMPO); delay(TEMPO);
 //       tone(BUZZER, SOL_4, TEMPO); delay(TEMPO);
 //       tone(BUZZER, LA_3, TEMPO); delay(TEMPO);
 //       tone(BUZZER, LA_3, TEMPO); delay(TEMPO);
-//       tone(BUZZER, LA_3, TEMPO); delay(TEMPO);       
+//       tone(BUZZER, LA_3, TEMPO); delay(TEMPO);
        tone(BUZZER, SI_3, TEMPO); delay(TEMPO);
        tone(BUZZER, SOL_3, TEMPO); delay(TEMPO);
-       tone(BUZZER, LA_3, TEMPO); delay(TEMPO);       
        tone(BUZZER, LA_3, TEMPO); delay(TEMPO);
-       tone(BUZZER, LA_3, TEMPO); delay(TEMPO);               
+       tone(BUZZER, LA_3, TEMPO); delay(TEMPO);
+       tone(BUZZER, LA_3, TEMPO); delay(TEMPO);
  }
 }
-} 
+}
