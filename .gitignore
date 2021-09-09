@@ -1,4 +1,4 @@
 .vscode/
 build/
-librairies
-generated_examples
+libraries/
+generated_examples/
