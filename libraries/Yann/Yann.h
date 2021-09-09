@@ -1,4 +1,4 @@
-#include <IRremote.h>
+// #include <IRremote.h>
 #define AVANT_ROBOT 5316027 // avant de la télécommande du robot
 #define AVANT_HIFI 2327580833 // avant de la télécommande de la chaine
 
