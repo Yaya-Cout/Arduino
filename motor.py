@@ -43,7 +43,6 @@ def move_servo(a):
     # analog3.write(valuebool)
     board.digital[analog_pin_to_digital(0)].write(valuebool)
 
-
     # board.analog[2].write(a)
     # print(board.analog[2].read())
 
